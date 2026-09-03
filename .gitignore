@@ -1,0 +1,10 @@
+﻿# Temporary and logs
+temp/
+Выгрузки и логи/
+__pycache__/
+*.pyc
+.trash/
+
+# Obsidian workspace cache (optional personal local window states)
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json

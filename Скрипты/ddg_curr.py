@@ -1,0 +1,24 @@
+import urllib.request, urllib.parse, re
+def ddg_search(query):
+    print(f"Searching for: {query}")
+    url = "https://html.duckduckgo.com/html/"
+    data = urllib.parse.urlencode({'q': query}).encode('utf-8')
+    req = urllib.request.Request(url, data=data, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'})
+    try:
+        html = urllib.request.urlopen(req).read().decode('utf-8')
+        results = re.findall(r'<a class="result__snippet[^>]*>(.*?)</a>', html, re.DOTALL | re.IGNORECASE)
+        links = re.findall(r'<a class="result__url" href="([^"]+)">', html, re.DOTALL | re.IGNORECASE)
+        titles = re.findall(r'<h2 class="result__title">.*?<a[^>]*>(.*?)</a>', html, re.DOTALL | re.IGNORECASE)
+        for i in range(min(4, len(results))):
+            snippet = re.sub(r'<[^>]+>', '', results[i]).strip()
+            title = re.sub(r'<[^>]+>', '', titles[i]).strip() if i < len(titles) else ''
+            link = links[i] if i < len(links) else ''
+            print(f"[{i+1}] {title}\nURL: {link}\n{snippet}\n")
+    except Exception as e:
+        print(f"Error: {e}")
+
+with open('out_curr.txt', 'w', encoding='utf-8') as f:
+    import sys
+    sys.stdout = f
+    ddg_search("ИТМО 09.03.02 Разработка программного обеспечения дисциплины 1 курс")
+    ddg_search("site:itmo.ru учебный план 09.03.02 Разработка программного обеспечения")

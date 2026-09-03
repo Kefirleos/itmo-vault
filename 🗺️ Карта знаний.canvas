@@ -1,0 +1,19 @@
+{
+	"nodes":[
+		{"id":"root","type":"text","text":"# 🎓 ИТМО Software Engineering\n**1 семестр (09.03.02)**","x":0,"y":0,"width":320,"height":120,"color":"1"},
+		{"id":"linal","type":"file","file":"Конспекты/Линейная алгебра.md","x":-380,"y":-220,"width":300,"height":240,"color":"4"},
+		{"id":"matan","type":"file","file":"Конспекты/Математический анализ.md","x":-540,"y":80,"width":460,"height":220,"color":"3"},
+		{"id":"dm","type":"file","file":"Конспекты/Дискретная математика.md","x":380,"y":-220,"width":300,"height":200,"color":"5"},
+		{"id":"prog","type":"file","file":"Конспекты/Программирование.md","x":380,"y":80,"width":300,"height":200,"color":"2"},
+		{"id":"lec1","type":"file","file":"Конспекты/2026-09-03 - Линейная алгебра - Введение, теория множеств и отображения.md","x":-760,"y":-220,"width":320,"height":260,"color":"4"},
+		{"id":"todo","type":"file","file":"TODO.md","x":-160,"y":280,"width":320,"height":220,"color":"6"}
+	],
+	"edges":[
+		{"id":"e1","fromNode":"root","fromSide":"left","toNode":"linal","toSide":"right"},
+		{"id":"e2","fromNode":"root","fromSide":"left","toNode":"matan","toSide":"right"},
+		{"id":"e3","fromNode":"root","fromSide":"right","toNode":"dm","toSide":"left"},
+		{"id":"e4","fromNode":"root","fromSide":"right","toNode":"prog","toSide":"left"},
+		{"id":"e5","fromNode":"linal","fromSide":"left","toNode":"lec1","toSide":"right"},
+		{"id":"e6","fromNode":"root","fromSide":"bottom","toNode":"todo","toSide":"top"}
+	]
+}

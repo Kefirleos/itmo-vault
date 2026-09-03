@@ -1,0 +1,20 @@
+{
+  "baseTheme": "dark",
+  "legacyEditor": false,
+  "livePreview": true,
+  "spellcheck": true,
+  "spellcheckLanguages": [
+    "ru",
+    "en-US"
+  ],
+  "promptDelete": true,
+  "attachmentFolderPath": "temp",
+  "useMarkdownLinks": false,
+  "newFileLocation": "folder",
+  "newFileFolderPath": "Конспекты",
+  "showLineNumber": true,
+  "readableLineLength": true,
+  "strictLineBreaks": false,
+  "foldHeading": true,
+  "foldIndent": true
+}
