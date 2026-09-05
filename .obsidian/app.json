@@ -3,10 +3,7 @@
   "legacyEditor": false,
   "livePreview": true,
   "spellcheck": true,
-  "spellcheckLanguages": [
-    "ru",
-    "en-US"
-  ],
+  "spellcheckLanguages": null,
   "promptDelete": true,
   "attachmentFolderPath": "temp",
   "useMarkdownLinks": false,
