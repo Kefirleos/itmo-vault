@@ -50,16 +50,18 @@ class LectureViewerHandler(http.server.SimpleHTTPRequestHandler):
             notes = []
             notes_dir = os.path.join(WORKSPACE_DIR, "Конспекты")
             if os.path.exists(notes_dir):
-                for f in sorted(os.listdir(notes_dir), reverse=True):
-                    if f.endswith(".md"):
-                        p = os.path.join(notes_dir, f)
-                        title = f.replace(".md", "")
-                        notes.append({
-                            "title": title,
-                            "filename": f,
-                            "path": f"/Конспекты/{urllib.parse.quote(f)}",
-                            "size": os.path.getsize(p)
-                        })
+                for root_dir, _, files in os.walk(notes_dir):
+                    for f in sorted(files, reverse=True):
+                        if f.endswith(".md"):
+                            p = os.path.join(root_dir, f)
+                            rel_path = os.path.relpath(p, WORKSPACE_DIR).replace("\\", "/")
+                            title = f.replace(".md", "")
+                            notes.append({
+                                "title": title,
+                                "filename": f,
+                                "path": f"/{urllib.parse.quote(rel_path)}",
+                                "size": os.path.getsize(p)
+                            })
             
             extra_docs = [
                 {"title": "🏠 Главная", "path": f"/{urllib.parse.quote('🏠 Главная.md')}"},
