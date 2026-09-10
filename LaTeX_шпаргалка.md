@@ -15,6 +15,7 @@
 | $\exists$ | `\exists` | Существует | There exists |
 | $\exists!$ | `\exists!` | Существует и единственен | There exists a unique |
 | $\nexists$ | `\nexists` | Не существует | There does not exist |
+| $]$ | `$]$` или `\text{Пусть}` | Пусть (допущение лектора) | Let / Suppose |
 | $\neg$ | `\neg` | Отрицание (НЕ) | Not / Negation |
 | $\implies$ | `\implies` или `\Rightarrow` | Следовательно / влечет | Implies / If... then... |
 | $\iff$ | `\iff` или `\Leftrightarrow` | Тогда и только тогда | If and only if (iff) |
