@@ -1,10 +1,60 @@
-﻿# Temporary and logs
+# Временные папки и фото
 temp/
 Выгрузки и логи/
+.trash/
 __pycache__/
 *.pyc
-.trash/
 
-# Obsidian workspace cache (optional personal local window states)
+# Приватные и личные материалы (защита от утечек и плагиата)
+[Лл]абораторные/
+[Лл]абораторные работы/
+[Лл]абы/
+labs/
+lab*/
+solutions/
+my_solutions/
+private/
+personal/
+личные/
+секреты/
+
+# Секреты, токены, ключи и конфиги
+*.env
+*.env.*
+*.token
+*.key
+*.pem
+credentials.json
+id_rsa
+id_ed25519
+
+# Сборка C / C++ и бинарные файлы
+build/
+cmake-build-*/
+bin/
+out/
+*.exe
+*.o
+*.obj
+*.dll
+*.so
+*.dylib
+*.pdb
+*.ilk
+compile_commands.json
+
+# IDE и редакторы
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.cache/
+
+# Obsidian локальные кэши состояний окон
 .obsidian/workspace.json
 .obsidian/workspace-mobile.json
+
+# Системные файлы
+Thumbs.db
+Desktop.ini
+.DS_Store
