@@ -1,19 +1,173 @@
 {
-	"nodes":[
-		{"id":"root","type":"text","text":"# 🎓 ИТМО Software Engineering\n**1 семестр (09.03.02)**","x":0,"y":0,"width":320,"height":120,"color":"1"},
-		{"id":"linal","type":"file","file":"Конспекты/1 семестр/Линейная алгебра/Линейная алгебра.md","x":-380,"y":-220,"width":300,"height":240,"color":"4"},
-		{"id":"matan","type":"file","file":"Конспекты/1 семестр/Математический анализ/Математический анализ.md","x":-540,"y":80,"width":460,"height":220,"color":"3"},
-		{"id":"dm","type":"file","file":"Конспекты/1 семестр/Дискретная математика/Дискретная математика.md","x":380,"y":-220,"width":300,"height":200,"color":"5"},
-		{"id":"prog","type":"file","file":"Конспекты/1 семестр/Основы программирования/Основы программирования.md","x":380,"y":80,"width":300,"height":200,"color":"2"},
-		{"id":"lec1","type":"file","file":"Конспекты/1 семестр/Линейная алгебра/2026-09-03 - Линейная алгебра - Введение, теория множеств и отображения.md","x":-760,"y":-220,"width":320,"height":260,"color":"4"},
-		{"id":"todo","type":"file","file":"TODO.md","x":-160,"y":280,"width":320,"height":220,"color":"6"}
-	],
-	"edges":[
-		{"id":"e1","fromNode":"root","fromSide":"left","toNode":"linal","toSide":"right"},
-		{"id":"e2","fromNode":"root","fromSide":"left","toNode":"matan","toSide":"right"},
-		{"id":"e3","fromNode":"root","fromSide":"right","toNode":"dm","toSide":"left"},
-		{"id":"e4","fromNode":"root","fromSide":"right","toNode":"prog","toSide":"left"},
-		{"id":"e5","fromNode":"linal","fromSide":"left","toNode":"lec1","toSide":"right"},
-		{"id":"e6","fromNode":"root","fromSide":"bottom","toNode":"todo","toSide":"top"}
-	]
+  "nodes": [
+    {
+      "id": "root",
+      "type": "text",
+      "text": "# 🎓 ИТМО Software Engineering\n**1 семестр (Осень 2026)**\n6 фундаментальных дисциплин, единая база знаний и перекрестные ссылки.",
+      "x": 0,
+      "y": 0,
+      "width": 360,
+      "height": 180,
+      "color": "1"
+    },
+    {
+      "id": "aisd",
+      "type": "file",
+      "file": "Конспекты/1 семестр/Алгоритмы и структуры данных/Алгоритмы и структуры данных.md",
+      "x": -500,
+      "y": -300,
+      "width": 340,
+      "height": 280,
+      "color": "4"
+    },
+    {
+      "id": "dm",
+      "type": "file",
+      "file": "Конспекты/1 семестр/Дискретная математика/Дискретная математика.md",
+      "x": 0,
+      "y": -400,
+      "width": 340,
+      "height": 280,
+      "color": "5"
+    },
+    {
+      "id": "prog",
+      "type": "file",
+      "file": "Конспекты/1 семестр/Основы программирования/Основы программирования.md",
+      "x": 500,
+      "y": -300,
+      "width": 340,
+      "height": 280,
+      "color": "6"
+    },
+    {
+      "id": "matan",
+      "type": "file",
+      "file": "Конспекты/1 семестр/Математический анализ/Математический анализ.md",
+      "x": -500,
+      "y": 250,
+      "width": 340,
+      "height": 280,
+      "color": "2"
+    },
+    {
+      "id": "linal",
+      "type": "file",
+      "file": "Конспекты/1 семестр/Линейная алгебра/Линейная алгебра.md",
+      "x": 0,
+      "y": 300,
+      "width": 340,
+      "height": 280,
+      "color": "3"
+    },
+    {
+      "id": "isrpo",
+      "type": "file",
+      "file": "Конспекты/1 семестр/Инструментальные средства разработки ПО/Инструментальные средства разработки ПО.md",
+      "x": 500,
+      "y": 250,
+      "width": 340,
+      "height": 280,
+      "color": "4"
+    },
+    {
+      "id": "resources",
+      "type": "file",
+      "file": "Учебные материалы/Полезные ресурсы и материалы для обучения.md",
+      "x": -950,
+      "y": -50,
+      "width": 360,
+      "height": 300,
+      "color": "1"
+    },
+    {
+      "id": "checklist",
+      "type": "file",
+      "file": "Учебные материалы/Чек-лист изучения материалов по предметам.md",
+      "x": 950,
+      "y": -50,
+      "width": 360,
+      "height": 300,
+      "color": "2"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e_root_aisd",
+      "fromNode": "root",
+      "fromSide": "top",
+      "toNode": "aisd",
+      "toSide": "bottom"
+    },
+    {
+      "id": "e_root_dm",
+      "fromNode": "root",
+      "fromSide": "top",
+      "toNode": "dm",
+      "toSide": "bottom"
+    },
+    {
+      "id": "e_root_prog",
+      "fromNode": "root",
+      "fromSide": "top",
+      "toNode": "prog",
+      "toSide": "bottom"
+    },
+    {
+      "id": "e_root_matan",
+      "fromNode": "root",
+      "fromSide": "bottom",
+      "toNode": "matan",
+      "toSide": "top"
+    },
+    {
+      "id": "e_root_linal",
+      "fromNode": "root",
+      "fromSide": "bottom",
+      "toNode": "linal",
+      "toSide": "top"
+    },
+    {
+      "id": "e_root_isrpo",
+      "fromNode": "root",
+      "fromSide": "bottom",
+      "toNode": "isrpo",
+      "toSide": "top"
+    },
+    {
+      "id": "e_root_res",
+      "fromNode": "root",
+      "fromSide": "left",
+      "toNode": "resources",
+      "toSide": "right"
+    },
+    {
+      "id": "e_root_chk",
+      "fromNode": "root",
+      "fromSide": "right",
+      "toNode": "checklist",
+      "toSide": "left"
+    },
+    {
+      "id": "e_dm_aisd",
+      "fromNode": "dm",
+      "fromSide": "left",
+      "toNode": "aisd",
+      "toSide": "right"
+    },
+    {
+      "id": "e_prog_isrpo",
+      "fromNode": "prog",
+      "fromSide": "bottom",
+      "toNode": "isrpo",
+      "toSide": "top"
+    },
+    {
+      "id": "e_matan_linal",
+      "fromNode": "matan",
+      "fromSide": "right",
+      "toNode": "linal",
+      "toSide": "left"
+    }
+  ]
 }
