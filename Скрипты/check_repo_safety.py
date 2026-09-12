@@ -34,6 +34,9 @@ FORBIDDEN_PATH_PATTERNS = [
     re.compile(r'\.key$', re.IGNORECASE),
     re.compile(r'\.token$', re.IGNORECASE),
     re.compile(r'credentials\.json$', re.IGNORECASE),
+    re.compile(r'tasks?(\.html|\.md)?$', re.IGNORECASE),
+    re.compile(r'TODO(\.md)?$', re.IGNORECASE),
+    re.compile(r'личный\s*план', re.IGNORECASE),
 ]
 
 FORBIDDEN_CONTENT_PATTERNS = [
@@ -41,6 +44,7 @@ FORBIDDEN_CONTENT_PATTERNS = [
     (re.compile(r'BEGIN (RSA|OPENSSH|EC|DSA) PRIVATE KEY'), "SSH Private Key"),
     (re.compile(r'(?i)api[_-]?key\s*[:=]\s*[\'"][a-zA-Z0-9_\-]{16,}'), "API Key"),
     (re.compile(r'(?i)password\s*[:=]\s*[\'"][^\'"]{6,}'), "Hardcoded Password"),
+    (re.compile(r'd:\\\\Личная', re.IGNORECASE), "Personal local path (d:\\Личная)"),
 ]
 
 def check_pass_1_paths(tracked_files):
@@ -49,7 +53,7 @@ def check_pass_1_paths(tracked_files):
     for path in tracked_files:
         base = os.path.basename(path)
         for pat in FORBIDDEN_PATH_PATTERNS:
-            if any(allowed in path for allowed in ['Полезные ресурсы', 'README', 'tasks.html', 'TODO', 'GEMINI.md', 'AGENTS.md', 'check_repo_safety.py']):
+            if any(allowed in path for allowed in ['Полезные ресурсы', 'README', 'GEMINI.md', 'AGENTS.md', 'check_repo_safety.py']):
                 continue
             if pat.search(base):
                 if any(ok in path.lower() for ok in ["конспект", "лекция", "практика", "регламент"]):
@@ -69,7 +73,7 @@ def check_pass_2_secrets(tracked_files):
         full_path = os.path.join(VAULT_ROOT, rel_path)
         if not os.path.exists(full_path):
             continue
-        if rel_path.endswith(('.pdf', '.png', '.jpg', '.jpeg', '.exe', '.dll', '.canvas')):
+        if rel_path.endswith(('.pdf', '.png', '.jpg', '.jpeg', '.exe', '.dll', '.canvas', 'check_repo_safety.py')):
             continue
         try:
             with open(full_path, 'r', encoding='utf-8', errors='ignore') as f:

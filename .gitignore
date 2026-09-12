@@ -17,6 +17,12 @@ private/
 personal/
 личные/
 секреты/
+tasks.html
+*tasks*.html
+TODO.md
+*TODO*.md
+*Личный план*.md
+*личный_план*.md
 
 # Секреты, токены, ключи и конфиги
 *.env
