@@ -3,7 +3,7 @@
     {
       "id": "root",
       "type": "text",
-      "text": "# 🎓 ИТМО Software Engineering\n**1 семестр (Осень 2026)**\n6 фундаментальных дисциплин, единая база знаний и перекрестные ссылки.",
+      "text": "# 🎓 ИТМО Software Engineering\n**1 семестр (Осень 2026)**\n7 фундаментальных дисциплин, единая база знаний и перекрестные ссылки.",
       "x": 0,
       "y": 0,
       "width": 360,
@@ -89,6 +89,16 @@
       "width": 360,
       "height": 300,
       "color": "2"
+    },
+    {
+      "id": "arch",
+      "type": "file",
+      "file": "Конспекты/1 семестр/Архитектура ЭВМ/Архитектура ЭВМ.md",
+      "x": 500,
+      "y": -650,
+      "width": 340,
+      "height": 280,
+      "color": "6"
     }
   ],
   "edges": [
@@ -168,6 +178,13 @@
       "fromSide": "right",
       "toNode": "linal",
       "toSide": "left"
+    },
+    {
+      "id": "e_prog_arch",
+      "fromNode": "prog",
+      "fromSide": "top",
+      "toNode": "arch",
+      "toSide": "bottom"
     }
   ]
 }
