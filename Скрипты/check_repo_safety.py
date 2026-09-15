@@ -157,8 +157,8 @@ def check_pass_4_git():
         print(f"  📧 Git user.email: '{email}'")
         print(f"  🔤 Git core.quotepath: '{quotepath}'")
 
-        if email != "student@itmo.ru":
-            print("  ⚠️ Внимание: рекомендуется нейтральный email 'student@itmo.ru'")
+        if not (email.endswith("@users.noreply.github.com") or email == "student@itmo.ru"):
+            print("  ⚠️ Внимание: рекомендуется GitHub noreply email или 'student@itmo.ru'")
         if quotepath.lower() != "false":
             print("  ❌ Ошибка: core.quotepath должен быть false для корректной поддержки кириллицы!")
             ok = False

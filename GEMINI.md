@@ -61,7 +61,7 @@
 
 ### Этап 4. Проверка Git-окружения и чистоты индекса (Git Environment & Index Audit)
 - Выполнить `git status` и вручную построчно проинспектировать список staged/untracked файлов.
-- Убедиться, что автор коммита строго нейтрален: `ITMO Student <student@itmo.ru>`.
+- Убедиться, что автор коммита настроен корректно: `Kefirleos <192615644+Kefirleos@users.noreply.github.com>` (защищенный GitHub no-reply email автора) или нейтральный `ITMO Student <student@itmo.ru>`.
 - Убедиться в активности настройки `git config core.quotepath false`.
 - Использовать понятные сообщения коммитов по стандарту Conventional Commits (`feat:`, `docs:`, `fix:`, `refactor:`).
 
