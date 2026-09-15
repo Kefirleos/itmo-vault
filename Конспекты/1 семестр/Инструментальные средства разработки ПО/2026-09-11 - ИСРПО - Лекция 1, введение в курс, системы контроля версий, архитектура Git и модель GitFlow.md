@@ -255,15 +255,7 @@ Git (Snapshot-based):
 
 Вся база данных Git (`.git/objects`) состоит всего из 4 типов объектов:
 
-```mermaid
-graph TD
-    subgraph Git Objects
-        C["Commit<br>tree: 92fa...<br>parent: e1b2...<br>author: Linus<br>message: Initial code"] --> T["Tree (корень)<br>100644 blob 3b18... README.md<br>040000 tree 88cd... src/"]
-        T --> B1["Blob<br># My Project... (README)"]
-        T --> T2["Tree (папка src/)<br>100644 blob a74f... main.cpp"]
-        T2 --> B2["Blob<br>int main() { ... }"]
-    end
-```
+![Внутренняя объектная модель Git (DAG в .git/objects)](images/git_fig01_internal_objects.png)
 
 1. **`blob` (binary large object):**
    - Хранит чистые бинарные данные файла.

@@ -51,6 +51,8 @@ graph TD
     end
 ```
 
+![Двоичная Max-Куча и её отображение в плоский 1D-массив индексов](images/aisd_fig08_binary_heap_array_map.png)
+
 ---
 
 ## 2. Базовые операции: `siftUp` и `siftDown`
@@ -73,6 +75,8 @@ void siftUp(std::vector<int>& heap, int i) {
 ### 2. Просеивание вниз (`siftDown`)
 Применяется при извлечении максимума (корень заменяется последним элементом). Нарушенный элемент погружается вниз, меняясь местами с **наибольшим из своих потомков**:
 $$T(n) = O(h) = O(\log n)$$
+
+![Операция SiftDown (просеивание вниз): восстановление инварианта Max-Heap](images/aisd_fig09_heap_sift_down.png)
 
 ```cpp
 void siftDown(std::vector<int>& heap, int n, int i) {

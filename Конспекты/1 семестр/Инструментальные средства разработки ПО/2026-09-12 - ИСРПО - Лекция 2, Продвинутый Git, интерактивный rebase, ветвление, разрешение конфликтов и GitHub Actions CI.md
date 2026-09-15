@@ -28,26 +28,7 @@ subject: Инструментальные средства разработки 
 
 При интеграции ветки фичи `feature` в базовую ветку `main` разработчик выбирает между двумя диаметрально противоположными философиями ведения истории проекта.
 
-```mermaid
-graph TD
-    subgraph Merge Strategy (Сохранение контекста)
-        M0["C1 (main)"] --> M1["C2"]
-        M1 --> M2["C3 (main)"]
-        M1 --> F1["F1 (feature)"]
-        F1 --> F2["F2"]
-        M2 & F2 --> MM["M (Merge Commit: 2 parents)"]
-    end
-```
-
-```mermaid
-graph LR
-    subgraph Rebase Strategy (Линейная история)
-        R0["C1"] --> R1["C2"]
-        R1 --> R2["C3 (main)"]
-        R2 --> RF1["F1' (rebased)"]
-        RF1 --> RF2["F2' (rebased)"]
-    end
-```
+![Сравнение стратегий интеграции веток: git merge vs git rebase](images/git_fig02_merge_vs_rebase.png)
 
 ### Сравнение подходов:
 
