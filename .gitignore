@@ -1,0 +1,81 @@
+# Временные папки и фото
+temp/
+Выгрузки и логи/
+.trash/
+__pycache__/
+*.pyc
+
+# Приватные и личные материалы (защита от утечек и плагиата)
+[Лл]абораторные/
+[Лл]абораторные работы/
+[Лл]абы/
+labs/
+lab*/
+solutions/
+my_solutions/
+private/
+personal/
+личные/
+секреты/
+tasks.html
+*tasks*.html
+TODO.md
+*TODO*.md
+*Личный план*.md
+*личный_план*.md
+*БАНК_ИДЕЙ*.md
+*банк_идей*.md
+*IDEAS*.md
+*ideas*.md
+
+
+# Секреты, токены, ключи и конфиги
+*.env
+*.env.*
+*.token
+*.key
+*.pem
+credentials.json
+id_rsa
+id_ed25519
+
+# Сборка C / C++ и бинарные файлы
+build/
+cmake-build-*/
+bin/
+out/
+*.exe
+*.o
+*.obj
+*.dll
+*.so
+*.dylib
+*.pdb
+*.ilk
+compile_commands.json
+
+# IDE и редакторы
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.cache/
+
+# Obsidian конфигурации, плагины и кэши (настраиваются индивидуально)
+.obsidian/
+
+# Служебные правила и регламенты ИИ-ассистента (локальные)
+AGENTS.md
+GEMINI.md
+
+# Локальные скрипты автоматизации и проверки
+Скрипты/
+
+# Памятки синхронизации и разовые инструкции
+*СИНХРОНИЗАЦИЯ_С_ТЕЛЕФОНОМ*
+КАК_СКАЧАТЬ_И_ОТКРЫТЬ.md
+
+# Системные файлы
+Thumbs.db
+Desktop.ini
+.DS_Store
