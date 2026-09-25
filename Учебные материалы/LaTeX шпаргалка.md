@@ -168,9 +168,9 @@ $$\begin{cases} a_{11} x_1 + a_{12} x_2 + \dots + a_{1n} x_n = b_1 \\ a_{21} x_1
 | **Критерий Коши / $\varepsilon-\delta$** | `\forall \varepsilon > 0\ \exists N \dots` | `\forall \varepsilon > 0\ \exists \delta > 0 \dots` | $\forall \varepsilon > 0\ \exists \delta > 0$ |
 | **Производная** | `f'(x), \frac{df}{dx}, \frac{d^2 f}{dx^2}` | `\frac{d}{dx}(e^x) = e^x` | $\frac{d}{dx}(e^x) = e^x$ |
 | **Частная производная** | `\frac{\partial f}{\partial x}` | `\frac{\partial f}{\partial x} + \frac{\partial f}{\partial y}` | $\frac{\partial f}{\partial x} + \frac{\partial f}{\partial y}$ |
-| **Неопределенный интеграл** | `\int f(x)\,dx` | `\int \frac{1}{x}\,dx = \ln|x| + C` | $\int \frac{1}{x}\,dx = \ln|x| + C$ |
-| **Определенный интеграл** | `\int_a^b f(x)\,dx` | `\int_0^1 x^2\,dx = \left. \frac{x^3}{3} \right|_0^1 = \frac{1}{3}` | $\int_0^1 x^2\,dx = \left. \frac{x^3}{3} \right|_0^1 = \frac{1}{3}` |
-| **Подстановка пределов** | `\left. F(x) \right|_a^b` | `\left. \sin x \right|_0^\pi` | $\left. \sin x \right|_0^\pi$ |
+| **Неопределенный интеграл** | `\int f(x)\,dx` | `\int \frac{1}{x}\,dx = \ln\vert x\vert + C` | $\int \frac{1}{x}\,dx = \ln\vert x\vert + C$ |
+| **Определенный интеграл** | `\int_a^b f(x)\,dx` | `\int_0^1 x^2\,dx = \left. \frac{x^3}{3} \right\vert_0^1 = \frac{1}{3}` | $\int_0^1 x^2\,dx = \left. \frac{x^3}{3} \right\vert_0^1 = \frac{1}{3}$ |
+| **Подстановка пределов** | `\left. F(x) \right\vert_a^b` | `\left. \sin x \right\vert_0^\pi` | $\left. \sin x \right\vert_0^\pi$ |
 
 ---
 
