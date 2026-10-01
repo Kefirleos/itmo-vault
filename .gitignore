@@ -1,5 +1,6 @@
 # Временные папки и фото
 temp/
+temp_archive/
 Выгрузки и логи/
 .trash/
 __pycache__/
