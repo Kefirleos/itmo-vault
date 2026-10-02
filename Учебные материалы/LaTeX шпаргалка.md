@@ -117,7 +117,7 @@ tags:
 | **Жирный вектор** | `\mathbf{v}, \mathbf{x}` | `\mathbf{v} \in \mathbb{R}^n` | $\mathbf{v} \in \mathbb{R}^n$ |
 | **Скалярное произведение** | `\langle u, v \rangle` или `u \cdot v` | `\langle \mathbf{u}, \mathbf{v} \rangle = 0` | $\langle \mathbf{u}, \mathbf{v} \rangle = 0$ |
 | **Векторное произведение** | `u \times v` или `[u, v]` | `\vec{a} \times \vec{b}` | $\vec{a} \times \vec{b}$ |
-| **Норма / длина вектора** | `\| \mathbf{v} \|` | `\|\mathbf{v}\| = \sqrt{\langle \mathbf{v}, \mathbf{v} \rangle}` | $\|\mathbf{v}\| = \sqrt{\langle \mathbf{v}, \mathbf{v} \rangle}$ |
+| **Норма / длина вектора** | `\Vert \mathbf{v} \Vert` | `\Vert \mathbf{v} \Vert = \sqrt{\langle \mathbf{v}, \mathbf{v} \rangle}` | $\Vert \mathbf{v} \Vert = \sqrt{\langle \mathbf{v}, \mathbf{v} \rangle}$ |
 | **Линейная оболочка** | `\operatorname{span}(v_1, \dots, v_k)` | `\operatorname{span}(\mathbf{e}_1, \mathbf{e}_2)` | $\operatorname{span}(\mathbf{e}_1, \mathbf{e}_2)$ |
 | **Размерность и ранг** | `\dim V, \operatorname{rank} A` | `\dim \operatorname{Ker} A + \operatorname{rank} A = n` | $\dim \operatorname{Ker} A + \operatorname{rank} A = n$ |
 
