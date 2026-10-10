@@ -68,6 +68,9 @@ compile_commands.json
 # Служебные правила и регламенты ИИ-ассистента (локальные)
 AGENTS.md
 GEMINI.md
+CLAUDE.md
+CLAUDE.local.md
+.claude/
 
 # Локальные скрипты автоматизации и проверки
 Скрипты/

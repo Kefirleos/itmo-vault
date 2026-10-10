@@ -20,6 +20,9 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: 📦 Install Pillow (EXIF metadata check)
+        run: pip install pillow==11.0.0
+
       - name: 🛡️ Run Repository Safety Audit
         run: |
           python .github/scripts/check_safety.py

@@ -46,6 +46,8 @@ FORBIDDEN_FILE_PATTERNS = [
     r'.*tasks.*\.html$',
     r'.*личный_?план.*\.md$',
     r'.*USER_PREFERENCES.*',
+    r'.*PII_DENYLIST.*',
+    r'.*\.(jpe?g|heic|heif|mov|mp4)$',  # camera photos/videos (handwriting, faces, EXIF); figures must be PNG/SVG
 ]
 
 tracked_files = []
@@ -53,7 +55,8 @@ all_vault_files = set()
 all_vault_basenames = set()
 
 for root, dirs, files in os.walk('.'):
-    if any(k in root for k in ['.git', 'temp', 'personal']):
+    # Skip only git internals: temp/ or personal/ appearing in a checkout is itself a leak and must be reported
+    if '.git' in root.replace('\\', '/').split('/'):
         continue
     for f in files:
         rel_path = os.path.normpath(os.path.join(root, f)).replace('\\', '/')
@@ -89,10 +92,23 @@ SECRET_REGEXES = [
     (r'BEGIN (?:RSA |OPENSSH )?PRIVATE KEY', "SSH Private Key"),
     (r'sk-[a-zA-Z0-9]{32,}', "OpenAI / LLM API Key"),
     (r'(?:AIza[0-9A-Za-z-_]{35})', "Google Gemini API Key"),
+    (r'sk-ant-[A-Za-z0-9_\-]{32,}', "Anthropic API Key"),
+    (r'[A-Za-z]:[\\/]+(?:Users|Личная)[\\/]', "Absolute local path (C:\\Users / D:\\Личная)"),
 ]
 
+# Personal data (Russian Federal Law 152-FZ)
+PII_REGEXES = [
+    (r'(?<![\d.])(?:\+7|8)[\s(\-]*9\d{2}[\s)\-]*\d{3}[\s\-]*\d{2}[\s\-]*\d{2}(?!\d)', "Mobile phone number"),
+    (r'(?i)(?<![\w.+-])[A-Za-z0-9._%+-]+@(?:gmail|mail|yandex|ya|bk|inbox|list|rambler|outlook|hotmail|icloud|niuitmo|itmo)\.(?:com|ru|net)\b', "Personal e-mail"),
+    (r'(?i)t\.me/(?:\+|joinchat/)[A-Za-z0-9_\-]+', "Private Telegram invite link"),
+    (r'(?i)(?:паспорт\w*|СНИЛС|ИНН)\s*[:№#]?\s*\d{2,4}[\s\-]?\d{2,}', "Passport / SNILS / INN number"),
+    (r'(?i)(?:номер\s+ИСУ|ИСУ\s*[:№#]|студенческ\w+\s+билет\w*\s*[:№#]?)\s*\d{5,7}', "ISU / student ID number"),
+]
+
+SCANNER_FILES = ('check_safety.py', 'check_repo_safety.py')
+
 for path in tracked_files:
-    if path.endswith(('.png', '.jpg', '.jpeg', '.pdf', '.ico', '.svg')):
+    if path.lower().endswith(('.png', '.jpg', '.jpeg', '.pdf', '.ico', '.svg', '.gif', '.webp')) or path.endswith(SCANNER_FILES):
         continue
     try:
         with open(path, 'r', encoding='utf-8', errors='ignore') as fp:
@@ -100,8 +116,29 @@ for path in tracked_files:
         for regex, desc in SECRET_REGEXES:
             if re.search(regex, content):
                 errors.append(f"[SECRET LEAK] Possible {desc} detected in '{path}'.")
+        for regex, desc in PII_REGEXES:
+            m = re.search(regex, content)
+            if m:
+                line = content.count('\n', 0, m.start()) + 1
+                errors.append(f"[PERSONAL DATA] {desc} in '{path}':{line}.")
     except Exception as e:
         warnings.append(f"Could not read {path}: {e}")
+
+# EXIF metadata: GPS coordinates or camera model reveal the author's location/device
+try:
+    from PIL import Image
+    for path in tracked_files:
+        if not path.lower().endswith(('.png', '.jpg', '.jpeg', '.webp', '.tif', '.tiff')):
+            continue
+        try:
+            exif = Image.open(path).getexif()
+        except Exception:
+            continue
+        found = [name for tag, name in ((0x8825, 'GPS'), (0x010F, 'Make'), (0x0110, 'Model'), (0x013B, 'Artist')) if tag in exif]
+        if found:
+            errors.append(f"[PERSONAL DATA] EXIF metadata ({', '.join(found)}) in image '{path}'.")
+except ImportError:
+    errors.append("[CI SETUP] Pillow is not installed: EXIF metadata check cannot run.")
 
 if len(errors) == 0:
     print("  ✅ Pass 2 Passed: No leaked secrets, tokens, or private keys detected.")
